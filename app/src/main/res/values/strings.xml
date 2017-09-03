@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Android_Login</string>
+    <string name="descrMenu">Elija una opción del menú</string>
+    <string name="updateInfo">Actualizando información</string>
+    <string name="loginToolbar">Inicio de sesión</string>
+    <string name="name">Nombre</string>
+    <string name="email">Email</string>
+    <string name="passWord">Contraseña</string>
+    <string name="btLogIn">Iniciar</string>
+    <string name="errorFaltanDatos">Error, faltan datos por introducir</string>
+    <string name="iniciandoLogin">Iniciando sesión...</string>
+    <string name="userNotEnabled">El usuario esta desactivado</string>
+    <string name="incorrectPassword">Contraseña incorrecta</string>
+    <string name="usernameNotExist">El usuario no existe</string>
+    <string name="btn_link_to_register">No eres miembro? Regístrate ahora.</string>
+    <string name="registerToolbar">Regístrate Ahora</string>
+    <string name="confirmPassword">Confirmar contraseña</string>
+    <string name="btRegister">Registrarse</string>
+    <string name="btn_link_to_login">Ya eres miembro? Pues inicia sesión.</string>
+    <string name="RegistroOK">Registrado, ya puedes iniciar sesión con tu usuario</string>
+    <string name="passwordNoCoincide">Las contraseñas no coinciden</string>
+    <string name="mensajeCargaRegistro">Registrando...</string>
+    <string name="errorAlRegistrar">Error al registrar el usuario</string>
+    <string name="errorUsuarioYaExiste">Error, el usuario ya existe con ese email</string>
+    <string name="noHayConexionServidor">Error: No se puede conectar con el servidor</string>
+    <string name="UnknownErrorRegistration">Error desconocido al registrarte</string>
+    <string name="ErrorPostParamsMissing">Error, faltan parametros POST en la petición HTTP</string>
+    <string name="UserAlreadyExist">Error, el usuario ya existe</string>
+</resources>

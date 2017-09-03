@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android_Login</string>
+    <string name="ErrorPostParamsMissing">Error, missing POST parameters in the HTTP request</string>
+    <string name="RegistroOK">Registered, now you can log in with your user</string>
+    <string name="UnknownErrorRegistration">Unknown error while registering</string>
+    <string name="UserAlreadyExist">Error, the user already exists</string>
+    <string name="btLogIn">Login</string>
+    <string name="btRegister">Register</string>
+    <string name="btn_link_to_login">Already registered? Log me.</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="descrMenu">Choose an option in the menu</string>
+    <string name="email">Email</string>
+    <string name="errorAlRegistrar">Error registering user</string>
+    <string name="errorFaltanDatos">Error, missing data to enter</string>
+    <string name="errorUsuarioYaExiste">Error, the user already exists with that email</string>
+    <string name="incorrectPassword">Incorrect password</string>
+    <string name="iniciandoLogin">Logging in...</string>
+    <string name="loginToolbar">Login</string>
+    <string name="mensajeCargaRegistro">Registering...</string>
+    <string name="name">Name</string>
+    <string name="noHayConexionServidor">Error: Couldn\'t connect to server</string>
+    <string name="passWord">Password</string>
+    <string name="passwordNoCoincide">Passwords don\'t match</string>
+    <string name="registerToolbar">Register Now</string>
+    <string name="updateInfo">Updating information</string>
+    <string name="userNotEnabled">The users is disabled</string>
+    <string name="usernameNotExist">User doesn\'t exists</string>
+</resources>
