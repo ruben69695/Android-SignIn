@@ -11,28 +11,24 @@ import java.util.*
  */
 
 /**
- * Constructor de la clase UserK
- * @param name Nombre de usuario
+ * Constructor of the User class
+ * @param name Username
+ * @param email : User email
+ * @param created_at : Creation date
+ * @param updated_at : Update date
  * *
- * @param pass Contraseña del usuario
- * *
- * @param rol Rol del usuario, admin o standard
- * *
- * @param status 0 en el caso de desactivado, 1 en el caso de activado
  */
 class User (var name : String, var email : String, var created_at : Date, var updated_at : Date) {
 
     // Secondary constructor
     constructor() : this("", "", Date(), Date())
 
-    //region FUNCTIONS AND METHODS
-
     @Throws(JSONException::class)
     fun convertJson_toUser(json : JSONObject) {
 
         var format : SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
-        // A partir del JSON rellenamos las propiedades del objeto Kotlin
+        // Thanks to the JSON we fill the class properties
         this.name = json.getString("name")
         this.email = json.getString("email")
         this.created_at = format.parse(json.getString("created_at"))

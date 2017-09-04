@@ -1,13 +1,11 @@
 package com.git.ruben.android_login
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.util.Log
-import android.view.inputmethod.InputMethodManager
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.android.volley.AuthFailureError
@@ -27,15 +25,17 @@ class registerActivity : AppCompatActivity() {
     private var password : EditText? = null
     private var queue : RequestQueue? = null
     private var pDialog : ProgressDialog? = null
+    private var vistaPrincipal : View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register_activity)
 
-        // CASTING DE VIEWS A KOTLIN OBJECTS
+        // CASTING FROM VIEWS TO KOTLIN OBJECTS
         name = findViewById(R.id.register_name) as EditText
         email = findViewById(R.id.register_email) as EditText
         password = findViewById(R.id.register_password) as EditText
+        vistaPrincipal = findViewById(R.id.drawer_layout_register) as View
 
         var btnRegister : Button = findViewById(R.id.btRegistrarse) as Button
         var btnLinkToLogin : Button = findViewById(R.id.btnLinkToLogIn) as Button
@@ -58,6 +58,7 @@ class registerActivity : AppCompatActivity() {
             val e : String = email?.text.toString()
             val p : String = password?.text.toString()
 
+            // Check if data its OK
             if(!n.isEmpty() && !e.isEmpty() && !p.isEmpty())
             {
                 try {
@@ -72,11 +73,13 @@ class registerActivity : AppCompatActivity() {
             }
             else
             {
-                lanzarSnack(R.id.drawer_layout_register, getString(R.string.errorFaltanDatos), Snackbar.LENGTH_LONG)
+                // Show error message, we need all the user information filled
+                Functions.showSnackbar(vistaPrincipal!!, getString(R.string.errorFaltanDatos))
             }
 
         }
 
+        // Add the link to login activity
         btnLinkToLogin.setOnClickListener {
             var intent : Intent = Intent(this, loginActivity::class.java)
             startActivity(intent)
@@ -85,6 +88,9 @@ class registerActivity : AppCompatActivity() {
 
     /**
      * Method to register the user
+     * @param name : Username
+     * @param email : User email
+     * @param password : User password
      */
     private fun attemptToRegister(name : String, email : String, password : String)
     {
@@ -95,7 +101,7 @@ class registerActivity : AppCompatActivity() {
         pDialog?.setMessage(getString(R.string.mensajeCargaRegistro))
         pDialog?.show()
 
-        // Create the Http request
+        // Create the Volley Http request
         val myReq = object : StringRequest(Method.POST,
                 AppConfig.URL_REGISTER,
                 requestSuccess(),
@@ -115,18 +121,7 @@ class registerActivity : AppCompatActivity() {
         queue?.add(myReq)
     }
 
-    /**
-     * Lanzar mensaje en forma de SnackBar
-     * @param layoutID : identificador del DrawerLayout
-     * *
-     * @param message : mensaje que mostrar
-     * *
-     * @param duration : duracion del SnackBar
-     */
-    private fun lanzarSnack(layoutID: Int, message: String, duration: Int) {
-        Snackbar.make(findViewById(layoutID)!!, message, duration).show()
-    }
-
+    // Method executed when the Volley request is succesfully completed
     private fun requestSuccess() : Response.Listener<String>?
     {
         return Response.Listener { response ->
@@ -141,19 +136,19 @@ class registerActivity : AppCompatActivity() {
                 {
                     // User succesfully register
 
-                    // Create an Kotlin User Object with the json data returned
+                    // Create a Kotlin User Object with the json data returned
                     val userObj = User()
                     userObj.convertJson_toUser(jObj.getJSONObject("user"))
 
                     // Show message and clean user inputs
-                    lanzarSnack(R.id.drawer_layout_register, getString(R.string.RegistroOK), Snackbar.LENGTH_LONG)
-                    limpiarFormulario()
+                    Functions.showSnackbar(vistaPrincipal!!, getString(R.string.RegistroOK))
+                    cleanInputs()
                 }
                 else
                 {
                     // Show message error
                     var errorDescription = getDescriptionError(jObj.getString("error_msg"))
-                    lanzarSnack(R.id.drawer_layout_register, errorDescription, Snackbar.LENGTH_LONG)
+                    Functions.showSnackbar(vistaPrincipal!!, errorDescription)
                 }
             }
             catch(excp : Exception)
@@ -167,6 +162,11 @@ class registerActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Method to ged the description of the error
+     * @param : Code error
+     * @return String : Error description
+     */
     private fun getDescriptionError(codError : String): String
     {
         var description : String = ""
@@ -181,15 +181,16 @@ class registerActivity : AppCompatActivity() {
     }
 
     /**
-     * Metodo para limpiar el formulario de registro
+     * Method to clean the user inputs
      */
-    private fun limpiarFormulario()
+    private fun cleanInputs()
     {
         this.name?.setText("")
         this.email?.setText("")
         this.password?.setText("")
     }
 
+    // Method executed when the Volley request fails
     private fun requestError() : Response.ErrorListener
     {
         return Response.ErrorListener { error ->
@@ -202,7 +203,7 @@ class registerActivity : AppCompatActivity() {
 
             Log.d("Volley", error.toString())
             pDialog?.hide()
-            lanzarSnack(R.id.drawer_layout_register, getString(R.string.noHayConexionServidor), Snackbar.LENGTH_LONG)
+            Functions.showSnackbar(vistaPrincipal!!, getString(R.string.noHayConexionServidor))
         }
     }
 }

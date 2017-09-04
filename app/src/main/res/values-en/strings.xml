@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android_Login</string>
+    <string name="app_name">Android Login Template</string>
     <string name="ErrorPostParamsMissing">Error, missing POST parameters in the HTTP request</string>
     <string name="RegistroOK">Registered, now you can log in with your user</string>
     <string name="UnknownErrorRegistration">Unknown error while registering</string>
@@ -27,4 +27,6 @@
     <string name="updateInfo">Updating information</string>
     <string name="userNotEnabled">The users is disabled</string>
     <string name="usernameNotExist">User doesn\'t exists</string>
+    <string name="Wrong_Credentials">Wrong credentials</string>
+    <string name="Session_Started">Session started</string>
 </resources>

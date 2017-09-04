@@ -51,7 +51,7 @@
 
                 <!-- ENTER USERNAME -->
                     <EditText
-                        android:id="@+id/loginUsername"
+                        android:id="@+id/loginEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"

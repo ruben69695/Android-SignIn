@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_Login</string>
+    <string name="app_name">Android Login Template</string>
     <string name="descrMenu">Elija una opción del menú</string>
     <string name="updateInfo">Actualizando información</string>
     <string name="loginToolbar">Inicio de sesión</string>
@@ -26,4 +26,6 @@
     <string name="UnknownErrorRegistration">Error desconocido al registrarte</string>
     <string name="ErrorPostParamsMissing">Error, faltan parametros POST en la petición HTTP</string>
     <string name="UserAlreadyExist">Error, el usuario ya existe</string>
+    <string name="Wrong_Credentials">Credenciales incorrectas</string>
+    <string name="Session_Started">Sesión iniciada</string>
 </resources>

@@ -2,6 +2,7 @@ package com.git.ruben.android_login.resources
 
 import android.app.Activity
 import android.content.Context
+import android.support.design.widget.Snackbar
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 
@@ -26,6 +27,18 @@ class Functions {
                 val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(view.windowToken, 0)
             }
+        }
+
+
+        /**
+         * Lanzar mensaje en forma de SnackBar
+         * @param view : vista actual
+         * @param layoutID : identificador del DrawerLayout
+         * @param message : mensaje que mostrar
+         */
+        fun showSnackbar(view : View, message : String)
+        {
+            Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
         }
     }
 }
