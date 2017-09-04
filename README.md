@@ -8,4 +8,4 @@
 - Catalan
 
 ## Some screenshots of the UI
-(https://www.dropbox.com/s/g8l4lf63f7w8mbt/Screenshot_20170904-220026.png?dl=0)
+(https://www.dropbox.com/s/g8l4lf63f7w8mbt/Screenshot_20170904-220026.png)
